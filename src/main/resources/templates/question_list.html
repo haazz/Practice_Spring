@@ -1,0 +1,22 @@
+[[MARK]]<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">[[/MARK]]
+[[MARK]]<div class="container my-3">[[/MARK]]
+    <table [[MARK]]class="table"[[/MARK]]>
+        <thead [[MARK]]class="table-dark"[[/MARK]]>
+            <tr>
+                [[MARK]]<th>번호</th>[[/MARK]]
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="question[[MARK]], loop[[/MARK]] : ${questionList}">
+                [[MARK]]<td th:text="${loop.count}"></td>[[/MARK]]
+                <td>
+                    <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+                </td>
+                <td th:text="[[MARK]]${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}[[/MARK]]"></td>
+            </tr>
+        </tbody>
+    </table>
+   
+[[MARK]]</div>[[/MARK]]
